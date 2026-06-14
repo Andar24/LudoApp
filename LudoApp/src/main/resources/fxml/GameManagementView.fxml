@@ -123,6 +123,16 @@
                             styleClass="btn-secondary"
                             maxWidth="Infinity"
                             onAction="#handleClear"/>
+                    <Separator/>
+                    <Label text="Quick Actions" styleClass="field-label"/>
+                    <Button text="🎮 Join Selected Game"
+                            styleClass="btn-success"
+                            maxWidth="Infinity"
+                            onAction="#handleJoinGame"/>
+                    <Button text="▶️ Play Selected Game"
+                            styleClass="btn-success"
+                            maxWidth="Infinity"
+                            onAction="#handlePlayGame"/>
                 </VBox>
             </VBox>
         </HBox>

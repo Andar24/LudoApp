@@ -31,6 +31,8 @@
                         maxWidth="Infinity"/>
                 <Button text="🎮  Manage Games" styleClass="nav-btn"
                         maxWidth="Infinity" onAction="#handleManageGames"/>
+                <Button text="🎲  Play Game" styleClass="nav-btn"
+                        maxWidth="Infinity" onAction="#handlePlayGame"/>
                 <Button text="🔄  Refresh" styleClass="nav-btn"
                         maxWidth="Infinity" onAction="#handleRefresh"/>
             </VBox>

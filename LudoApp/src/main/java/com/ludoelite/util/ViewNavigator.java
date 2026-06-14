@@ -39,6 +39,20 @@ public class ViewNavigator {
         loadScene("/fxml/GameManagementView.fxml", "Ludo Elite – Game Management", 1200, 780);
     }
 
+    public static void navigateToLudoBoard() {
+        loadScene("/fxml/LudoBoardView.fxml", "Ludo Elite – Game Board", 1400, 850);
+    }
+    
+    /**
+     * Navigate to Ludo Board with game context for multiplayer mode.
+     * 
+     * @param gameId The game ID from backend
+     */
+    public static void navigateToLudoBoard(String gameId) {
+        loadSceneWithContext("/fxml/LudoBoardView.fxml", "Ludo Elite – Game Board", 
+                            1400, 850, gameId);
+    }
+
     // ── Internal loader ──────────────────────────────────────────────────────
 
     private static void loadScene(String fxmlPath, String title, double width, double height) {
@@ -49,6 +63,41 @@ public class ViewNavigator {
             }
             FXMLLoader loader = new FXMLLoader(resource);
             Parent root = loader.load();
+            Scene scene = new Scene(root, width, height);
+
+            // Attach global stylesheet
+            URL css = ViewNavigator.class.getResource("/css/styles.css");
+            if (css != null) {
+                scene.getStylesheets().add(css.toExternalForm());
+            }
+
+            primaryStage.setTitle(title);
+            primaryStage.setScene(scene);
+            primaryStage.centerOnScreen();
+        } catch (IOException e) {
+            AlertHelper.showError("Navigation Error", "Cannot load screen: " + fxmlPath, e.getMessage());
+        }
+    }
+    
+    /**
+     * Load scene with game context for LudoBoardController.
+     */
+    private static void loadSceneWithContext(String fxmlPath, String title, 
+                                             double width, double height, String gameId) {
+        try {
+            URL resource = ViewNavigator.class.getResource(fxmlPath);
+            if (resource == null) {
+                throw new IOException("FXML not found: " + fxmlPath);
+            }
+            FXMLLoader loader = new FXMLLoader(resource);
+            Parent root = loader.load();
+            
+            // Get controller and set game context
+            Object controller = loader.getController();
+            if (controller instanceof com.ludoelite.controller.LudoBoardController) {
+                ((com.ludoelite.controller.LudoBoardController) controller).setGameContext(gameId);
+            }
+            
             Scene scene = new Scene(root, width, height);
 
             // Attach global stylesheet

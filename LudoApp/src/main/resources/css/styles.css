@@ -140,6 +140,24 @@
     -fx-opacity: 0.4;
 }
 
+.btn-success {
+    -fx-background-color: #10b981;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-pref-height: 40;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+}
+
+.btn-success:hover {
+    -fx-background-color: #059669;
+}
+
+.btn-success:disabled {
+    -fx-opacity: 0.4;
+}
+
 .btn-link {
     -fx-background-color: transparent;
     -fx-text-fill: #f59e0b;

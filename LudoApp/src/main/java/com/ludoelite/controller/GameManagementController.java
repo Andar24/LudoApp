@@ -150,6 +150,58 @@ public class GameManagementController extends BaseController implements Initiali
     private void handleBackToDashboard() {
         ViewNavigator.navigateToDashboard();
     }
+    
+    /**
+     * Handles Join button click - navigates to game board.
+     */
+    @FXML
+    private void handleJoinGame() {
+        Game selected = gameTable.getSelectionModel().getSelectedItem();
+        if (selected == null) {
+            showWarning("No Game Selected", "Please select a game to join.");
+            return;
+        }
+        
+        if (!"WAITING".equals(selected.getStatus())) {
+            showWarning("Cannot Join", "This game is not accepting players.");
+            return;
+        }
+        
+        // Navigate to game board with game ID
+        navigateToGameBoard(String.valueOf(selected.getId()));
+    }
+    
+    /**
+     * Handles Play button click - navigates to game board for in-progress game.
+     */
+    @FXML
+    private void handlePlayGame() {
+        Game selected = gameTable.getSelectionModel().getSelectedItem();
+        if (selected == null) {
+            showWarning("No Game Selected", "Please select a game to play.");
+            return;
+        }
+        
+        if ("FINISHED".equals(selected.getStatus())) {
+            showWarning("Game Finished", "This game has already finished.");
+            return;
+        }
+        
+        // Navigate to game board with game ID
+        navigateToGameBoard(String.valueOf(selected.getId()));
+    }
+    
+    /**
+     * Navigates to the game board view with game context.
+     */
+    private void navigateToGameBoard(String gameId) {
+        try {
+            ViewNavigator.navigateToLudoBoard(gameId);
+        } catch (Exception e) {
+            showError("Navigation Error", "Failed to open game board: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
 
     // ── Data loading ──────────────────────────────────────────────────────────
 

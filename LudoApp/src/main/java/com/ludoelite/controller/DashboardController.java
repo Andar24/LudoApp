@@ -101,6 +101,12 @@ public class DashboardController extends BaseController implements Initializable
     }
 
     @FXML
+    private void handlePlayGame() {
+        // Navigate to game board
+        ViewNavigator.navigateToLudoBoard();
+    }
+
+    @FXML
     private void handleRefresh() {
         loadGames();
     }

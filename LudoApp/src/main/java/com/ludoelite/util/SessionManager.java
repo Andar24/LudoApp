@@ -74,4 +74,12 @@ public class SessionManager {
     public String getPersistedUsername() {
         return prefs.get(PREF_USERNAME_KEY, "");
     }
+
+    /**
+     * Returns the persisted token (same as getJwtToken in this implementation).
+     * Used by WebSocketService for authentication.
+     */
+    public String getPersistedToken() {
+        return jwtToken;
+    }
 }
