@@ -1,8 +1,8 @@
 # 🎮 Ludo Elite - UAS PBO Project
 
 ## UAS Pemrograman Berorientasi Objek (PBO3/4/5/6)
-**Tema:** Permainan (Game)  
-**Kelompok:** [NAMA KELOMPOK]  
+**Tema:** Permainan L  
+**Kelompok:** RUSIDI 
 **Semester Genap T.A. 2025/2026**
 
 ---
