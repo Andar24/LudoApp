@@ -11,7 +11,6 @@
 
 Ludo Elite adalah implementasi digital dari permainan papan Ludo klasik menggunakan JavaFX. Game ini mendukung 4 pemain (Red, Green, Blue, Yellow) dengan aturan Ludo profesional yang lengkap. Aplikasi ini dibangun dengan menerapkan prinsip-prinsip Pemrograman Berorientasi Objek (PBO) dan arsitektur MVC.
 
-**Format Repository:** `UAS_PBO_LudoElite_[NamaKelompok]`
 
 ---
 
